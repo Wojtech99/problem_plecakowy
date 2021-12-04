@@ -94,12 +94,11 @@ public class Function {
      * function calculate values and weight of adaptation
      * @param chromosomeArrayList main list
      * @param parameters list with parameters
-     * @return main list with added
      */
-    public ArrayList<Chromosome> calculateAdaptationFunction(ArrayList<Chromosome> chromosomeArrayList,
-                                                             HashMap<String, Double> parameters,
-                                                             ArrayList<TableOfBackpack> backpackParameters){
-        //max waight for every chromosom
+    public void calculateAdaptationFunction(ArrayList<Chromosome> chromosomeArrayList,
+                                            HashMap<String, Double> parameters,
+                                            ArrayList<TableOfBackpack> backpackParameters){
+        //max weight for every chromosome
         double maxWeight =  parameters.get("maxWeight");
 
         //create binary strings in list
@@ -146,16 +145,14 @@ public class Function {
 
         help.convertBinaryStringToPhenotype(chromosomeArrayList);
 
-        return chromosomeArrayList;
     }
 
 
     /**
      * function to draw lots new chromosomes. Draw is based on listOfChromosomes
      * @param listOfChromosomes list with chromosomes
-     * @return same list with new chromosomes
      */
-    public ArrayList<Chromosome> rouletteWheel(ArrayList<Chromosome> listOfChromosomes){
+    public void rouletteWheel(ArrayList<Chromosome> listOfChromosomes){
         //list with the range of hitting a point
         ArrayList<Double> listOfFractions = new ArrayList<>();
 
@@ -196,7 +193,6 @@ public class Function {
             }
         }
 
-        return listOfChromosomes;
     }
 
 
@@ -205,9 +201,8 @@ public class Function {
      * function cross chromosomes together
      * @param listOfChromosome main chromosomes list
      * @param mapOfParameters list with parameters
-     * @return list with parameters after genetic cross
      */
-    public ArrayList<Chromosome> geneticCross(ArrayList<Chromosome> listOfChromosome, Map<String, Double> mapOfParameters){
+    public void geneticCross(ArrayList<Chromosome> listOfChromosome, Map<String, Double> mapOfParameters){
         //factor Pk
         double Pk = mapOfParameters.get("Pk");
 
@@ -254,7 +249,6 @@ public class Function {
 
         help.convertBinaryStringToPhenotype(listOfChromosome);
 
-        return listOfChromosome;
     }
 
 
@@ -262,9 +256,8 @@ public class Function {
      * function take every phenotype and mutate single char
      * @param listOfChromosome list of chromosomes
      * @param parameters list wit parameters
-     * @return the same list with mutated parameters
      */
-    public ArrayList<Chromosome> geneticMutation(ArrayList<Chromosome> listOfChromosome, Map<String, Double> parameters){
+    public void geneticMutation(ArrayList<Chromosome> listOfChromosome, Map<String, Double> parameters){
 
         //help list
         ArrayList<Chromosome> helpList = help.addToList(listOfChromosome);
@@ -295,7 +288,6 @@ public class Function {
 
         help.convertBinaryStringToPhenotype(listOfChromosome);
 
-        return listOfChromosome;
     }
 
 }

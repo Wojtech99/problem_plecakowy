@@ -13,8 +13,6 @@ public class Helper {
      * @return list of chromosomes with changed binary Phenotype
      */
     protected ArrayList<Chromosome> convertCollectPhenotypeToBinaryString(ArrayList<Chromosome> listOfChromosomes){
-        //lista Stringów
-
         for (int i = 0; i < listOfChromosomes.size(); i++){
             int temp = listOfChromosomes.get(i).getPhenotype();
 
@@ -59,9 +57,8 @@ public class Helper {
     /**
      * function convert binary phenotype to int
      * @param listOfChromosomes list of chromosomes
-     * @return chromosome list witch changed phenotype
      */
-    public ArrayList<Chromosome> convertBinaryStringToPhenotype(ArrayList<Chromosome> listOfChromosomes){
+    public void convertBinaryStringToPhenotype(ArrayList<Chromosome> listOfChromosomes){
 
         for (int i = 0; i < listOfChromosomes.size(); i++){
             int temp = Integer.parseInt(listOfChromosomes.get(i).getBinaryPhenotype(), 2);
@@ -69,7 +66,6 @@ public class Helper {
             listOfChromosomes.get(i).setPhenotype(temp);
         }
 
-        return listOfChromosomes;
     }
 
 
@@ -187,18 +183,14 @@ public class Helper {
      * @return new list
      */
     protected <T> ArrayList<T> addToList(ArrayList<T> list){
-        ArrayList<T> result = new ArrayList<>();
-
-        result.addAll(list);
-        return result;
+        return new ArrayList<>(list);
     }
 
     /**
      * function add fractions to list
      * @param listOfChromosomes main list
-     * @return the same list with added fractions
      */
-    public ArrayList<Chromosome> addFraction(ArrayList<Chromosome> listOfChromosomes){
+    public void addFraction(ArrayList<Chromosome> listOfChromosomes){
         //sum of all adaptation function values
         int sumOfCalculatedValues = listOfChromosomes.stream().mapToInt(Chromosome::getAdaptationFunctionValue).sum();
 
@@ -208,8 +200,5 @@ public class Helper {
 
             chromosome.setChanceChoose(fraction);
         }
-
-
-        return listOfChromosomes;
     }
 }

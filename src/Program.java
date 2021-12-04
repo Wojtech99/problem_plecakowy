@@ -57,9 +57,9 @@ public class Program {
     }
 
 
-    public static ArrayList<Chromosome> makeResultList(ArrayList<Chromosome> chromosomeArrayList,
-                                                       HashMap<String, Double> parameters,
-                                                       ArrayList<TableOfBackpack> backpackArrayList){
+    public static void makeResultList(ArrayList<Chromosome> chromosomeArrayList,
+                                      HashMap<String, Double> parameters,
+                                      ArrayList<TableOfBackpack> backpackArrayList){
         final Function fun = new Function();
 
         final Helper helper = new Helper();
@@ -70,6 +70,5 @@ public class Program {
 
         helper.addFraction(chromosomeArrayList);
 
-        return chromosomeArrayList;
     }
 }
