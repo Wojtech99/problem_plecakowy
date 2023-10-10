@@ -1,2 +1,2 @@
 # problem_plecakowy
-Genetic algorithm - Knapsack problem
+Genetic algorithm - Knapsack problem in Java
